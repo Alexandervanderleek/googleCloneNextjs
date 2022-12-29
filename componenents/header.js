@@ -1,15 +1,27 @@
 import User from "./User";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Header() {
+  const router = useRouter();
   return(
   <header className="flex justify-between p-5 text-sm text-gray-700">
     <div className="flex space-x-4 items-center">
-      <p className="link">About</p>
-      <p className="link">Store</p>
+      <Link legacyBehavior href="https://about.google/">
+      <a className="link">About</a>
+      </Link>
+      <Link legacyBehavior href="https://store.google.com">
+        <a className="link">Store</a>
+      </Link>
+      
     </div>
     <div className="flex space-x-4 items-center">
-      <p className="link">Gmail</p>
-      <p className="link">Images</p> 
+      <Link legacyBehavior href="https://mail.google.com">
+        <a className="link">Gmail</a>
+      </Link>
+      
+        <a onClick={()=>rotuer.push(`/search?term=${router.query.term || "google"}&searchType=image`)} className="link">Images</a> 
+      
       <User/>
     </div>    
   </header>)
